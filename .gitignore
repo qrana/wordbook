@@ -4,9 +4,12 @@
 /frontent/out-tsc
 /backend/data
 
+# favicon
+favicon.pdn
+favicon.png
+
 # dependencies
-/frontent/node_modules
-/backend/node_modules
+node_modules
 
 # unfinished folders
 /frontend/e2e
@@ -21,6 +24,7 @@
 *.sublime-workspace
 
 # IDE - VSCode
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
