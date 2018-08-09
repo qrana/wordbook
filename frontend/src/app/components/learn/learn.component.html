@@ -1,0 +1,52 @@
+<div class="row" class="main-div">
+  <div class="col-md-6 col-12" *ngIf="!done">
+    <form [formGroup]="learnForm" 
+          (keydown)="send($event, attempt.value)"
+          class="form-group">
+      <h4>Translate </h4>
+      <label for="attempt"
+              #prompt>
+              {{ currentWord }}
+      </label>
+      <br>
+      <textarea type="text"
+                rows="1"
+                placeholder="Translation"
+                class="form-control"
+                formControlName="attempt"
+                #attempt></textarea>
+      <br>
+      <button class="btn"
+              type="submit"
+              [disabled]="learnForm.invalid || done"
+              (click)="continue(attempt.value);">
+              {{ buttonText }}
+      </button>
+      <button class="btn"
+            [disabled]="done"
+            (click)="skip()">
+            Skip
+      </button>
+      <br>
+      <br>
+      <button routerLink="/" class="btn">Quit</button>
+      <h4>
+        <label *ngIf="result">{{ result }}</label>
+      </h4>
+    </form>
+    </div>
+    <div class="col-md-6 col-12" *ngIf="done">
+      <h1>All done!</h1>
+      <button routerLink="/" class="btn">Quit</button>
+    </div>
+    <div class="col-md-3 col-6" style="text-align: center">
+      <br>
+    </div>
+    <div class="col-md-3 col-6">
+      <h4>Progress</h4>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped"
+              [style.width]="progress + '%'"></div>
+      </div>
+    </div>
+</div>

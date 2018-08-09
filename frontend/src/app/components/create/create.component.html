@@ -1,0 +1,42 @@
+<div class="main-div">
+  <h1>Create Translation</h1>
+  <form [formGroup]="createForm" 
+    class="form-group" 
+    style="margin: 0px left; width: 40%;">
+    <select placeholder="Translation type"
+            formControlName="type"
+            #type
+            class="form-control">
+      <option value="n">Noun</option>
+      <option value="v">Verb</option>
+      <option value="a">Adjective</option>
+      <option value="s">Sentence</option>
+      <option value="e">Expression</option>
+      <option value="d">Adverb</option>
+      <option value="o">Other</option>
+    </select>
+    <input type="text"
+           placeholder="First translation"
+           formControlName="language1"
+           #language1
+           class="form-control">
+    <input type="text"
+           placeholder="Second translation"
+           formControlName="language2"
+           #language2
+           class="form-control">
+  </form>
+  
+  <br/>
+  <br/>
+  
+  <button routerLink="/list" class="btn">Go Back</button>
+  
+  <br/>
+  <button type="submit"
+          (click)="addIssue(type.value, language1.value, language2.value)"
+          [disabled]="createForm.pristine || createForm.invalid"
+          class="btn">
+    Create Translation
+  </button>
+</div>
